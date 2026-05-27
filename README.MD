@@ -30,10 +30,15 @@ Due to file size constraints, the pre-trained RTMPose model weights are hosted e
 ```bash
 conda create -n mouse python=3.10.16 -y
 conda activate mouse
+```
 
 **2. Install Hardware Acceleration (Nvidia GPU Recommended)**
+```bash
 conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
+```
 
 **3. Install Dependencies & Launch**
+```bash
 pip install -r requirements.txt
 python main.py
+```
