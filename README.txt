@@ -8,5 +8,11 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvi
 3. Install the required libraries:
 pip install -r requirements.txt
 
-4. Run the app in command prompt:
+4. Download the DeepLabCut weights at:
+https://drive.google.com/drive/folders/1J8SNtwVYJroW1cTlSppY7jwjQ1Npf9fX?usp=sharing
+
+5. Drag the weight files into
+deeplabcut/dlc-models-pytorch/iteration-0/rtmposexAug25-trainset95shuffle1/train
+
+6. Run the app in command prompt:
 python main.py
