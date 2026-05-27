@@ -1,0 +1,12 @@
+# Environments
+env/
+venv/
+deep/
+.conda/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Security
+.env

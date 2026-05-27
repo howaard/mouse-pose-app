@@ -1,0 +1,217 @@
+data:
+  bbox_margin: 60
+  colormode: RGB
+  inference:
+    normalize_images: true
+    top_down_crop:
+      height: 384
+      width: 384
+  train:
+    affine:
+      p: 0.5
+      rotation: 30
+      scaling:
+      - 1.0
+      - 1.0
+      translation: 0
+    gaussian_noise: 12.75
+    motion_blur: true
+    normalize_images: true
+    random_bbox_transform:
+      p: 1.0
+      scale_factor:
+      - 0.75
+      - 1.25
+      scale_prob: 1.0
+      shift_factor: 0.16
+      shift_prob: 0.3
+    top_down_crop:
+      height: 384
+      width: 384
+detector:
+  data:
+    colormode: RGB
+    inference:
+      normalize_images: true
+    train:
+      affine:
+        p: 0.5
+        rotation: 30
+        scaling:
+        - 1.0
+        - 1.0
+        translation: 40
+      collate:
+        max_scale: 1.0
+        max_short_side: 1152
+        min_scale: 0.4
+        min_short_side: 128
+        multiple_of: 32
+        to_square: false
+        type: ResizeFromDataSizeCollate
+      hflip: true
+      normalize_images: true
+  device: auto
+  model:
+    freeze_bn_stats: true
+    freeze_bn_weights: false
+    type: SSDLite
+  runner:
+    eval_interval: 10
+    key_metric: test.mAP@50:95
+    key_metric_asc: true
+    optimizer:
+      params:
+        lr: 0.0001
+      type: AdamW
+    scheduler:
+      params:
+        lr_list:
+        - - 1e-05
+        milestones:
+        - 160
+      type: LRListScheduler
+    snapshots:
+      max_snapshots: 5
+      save_epochs: 25
+      save_optimizer_state: false
+    type: DetectorTrainingRunner
+  train_settings:
+    batch_size: 16
+    dataloader_pin_memory: false
+    dataloader_workers: 0
+    display_iters: 500
+    epochs: 250
+device: auto
+metadata:
+  bodyparts:
+  - 1_snout
+  - 2_ear_l_tip
+  - 3_ear_r_tip
+  - 4_upper_spine
+  - 5_middle_spine
+  - 6_lower_spine
+  - 7_elbow_l
+  - 8_wrist_l
+  - 9_fore_paw_l_tip
+  - 10_elbow_r
+  - 11_wrist_r
+  - 12_fore_paw_r_tip
+  - 13_knee_l
+  - 14_ankle_l
+  - 15_hind_paw_l_tip
+  - 16_knee_r
+  - 17_ankle_r
+  - 18_hind_paw_r_tip
+  - 19_tail_0
+  - 20_tail_1
+  - 21_tail_2
+  individuals:
+  - animal
+  pose_config_path: C:\Users\Howard\Desktop\mouse-pose-app\deeplabcut\dlc-models-pytorch\iteration-0\rtmposexAug25-trainset95shuffle1\train\pose_cfg.yaml
+  project_path: C:\Users\Howard\Desktop\mouse-pose-app\deeplabcut
+  unique_bodyparts: []
+  with_identity: null
+method: td
+model:
+  backbone:
+    deepen_factor: 1.33
+    freeze_bn_stats: false
+    freeze_bn_weights: false
+    model_name: cspnext_x
+    type: CSPNeXt
+    widen_factor: 1.25
+  backbone_output_channels: 1280
+  heads:
+    bodypart:
+      criterion:
+        x:
+          beta: 10.0
+          label_softmax: true
+          type: KLDiscreteLoss
+          use_target_weight: true
+        y:
+          beta: 10.0
+          label_softmax: true
+          type: KLDiscreteLoss
+          use_target_weight: true
+      final_layer_kernel_size: 7
+      gau_cfg:
+        act_fn: SiLU
+        drop_path: 0.0
+        dropout_rate: 0
+        expansion_factor: 2
+        hidden_dims: 256
+        pos_enc: false
+        s: 128
+        use_rel_bias: false
+      in_channels: 1280
+      in_featuremap_size:
+      - 12
+      - 12
+      input_size:
+      - 384
+      - 384
+      out_channels: 21
+      predictor:
+        simcc_split_ratio: 2.0
+        type: SimCCPredictor
+      simcc_split_ratio: 2.0
+      target_generator:
+        input_size:
+        - 384
+        - 384
+        label_smooth_weight: 0.0
+        normalize: false
+        sigma:
+        - 6.93
+        - 6.93
+        simcc_split_ratio: 2.0
+        smoothing_type: gaussian
+        type: SimCCGenerator
+      type: RTMCCHead
+      weight_init: RTMPose
+net_type: rtmpose_x
+runner:
+  eval_interval: 10
+  gpus: null
+  key_metric: test.mAP
+  key_metric_asc: true
+  optimizer:
+    params:
+      lr: 0.001
+    type: AdamW
+  scheduler:
+    params:
+      milestones:
+      - 200
+      - 400
+      schedulers:
+      - params:
+          end_factor: 1.0
+          start_factor: 0.001
+          total_iters: 5
+        type: LinearLR
+      - params:
+          T_max: 200
+          eta_min: 5e-05
+        type: CosineAnnealingLR
+      - params:
+          lr_list:
+          - - 5e-05
+          milestones:
+          - 0
+        type: LRListScheduler
+    type: SequentialLR
+  snapshots:
+    max_snapshots: 5
+    save_epochs: 25
+    save_optimizer_state: false
+  type: PoseTrainingRunner
+train_settings:
+  batch_size: 32
+  dataloader_pin_memory: false
+  dataloader_workers: 4
+  display_iters: 500
+  epochs: 400
+  seed: 42

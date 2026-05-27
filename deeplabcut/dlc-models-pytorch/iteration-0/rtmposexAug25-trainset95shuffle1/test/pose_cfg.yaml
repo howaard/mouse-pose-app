@@ -1,0 +1,50 @@
+all_joints:
+- - 0
+- - 1
+- - 2
+- - 3
+- - 4
+- - 5
+- - 6
+- - 7
+- - 8
+- - 9
+- - 10
+- - 11
+- - 12
+- - 13
+- - 14
+- - 15
+- - 16
+- - 17
+- - 18
+- - 19
+- - 20
+all_joints_names:
+- 1_snout
+- 2_ear_l_tip
+- 3_ear_r_tip
+- 4_upper_spine
+- 5_middle_spine
+- 6_lower_spine
+- 7_elbow_l
+- 8_wrist_l
+- 9_fore_paw_l_tip
+- 10_elbow_r
+- 11_wrist_r
+- 12_fore_paw_r_tip
+- 13_knee_l
+- 14_ankle_l
+- 15_hind_paw_l_tip
+- 16_knee_r
+- 17_ankle_r
+- 18_hind_paw_r_tip
+- 19_tail_0
+- 20_tail_1
+- 21_tail_2
+dataset: C:\Users\Howard\Desktop\mouse-pose-app\deeplabcut\training-datasets\iteration-0\rtmposexAug25-trainset95shuffle1\CollectedData_test.csv
+dataset_type: multi-animal-imgaug
+global_scale: 1
+net_type: rtmpose_x
+num_joints: 21
+scoremap_dir: test

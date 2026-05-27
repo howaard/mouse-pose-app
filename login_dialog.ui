@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWidget</class>
+ <widget class="QWidget" name="LoginWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>280</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- Main Dialog Style --- */
+QWidget#LoginWidget {
+	background-color: #FFFFFF;
+    border: 2px solid #007B83;
+	border-radius: 10px;
+}
+
+QLabel {
+	color: #2D3748;
+	font-family: "Segoe UI", Arial, sans-serif;
+	font-size: 14px;
+}
+
+QLabel#titleLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007B83;
+}
+
+QLabel#statusLabel {
+	font-size: 12px;
+}
+
+QLineEdit {
+	background-color: #FFFFFF;
+	border: 1px solid #CBD5E0;
+	border-radius: 5px;
+	padding: 8px;
+	font-size: 14px;
+	color: #2D3748;
+}
+
+QLineEdit:focus {
+	border-color: #007B83;
+}
+
+QDialogButtonBox QPushButton {
+	background-color: #FFFFFF;
+	color: #007B83;
+    min-width: 80px;
+    padding: 6px 12px;
+	border: 2px solid #007B83;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+QDialogButtonBox QPushButton:hover {
+	background-color: #E6F2F3;
+}
+
+QDialogButtonBox QPushButton[text="Log In"] {
+	background-color: #007B83;
+    color: #FFFFFF;
+}
+
+QDialogButtonBox QPushButton[text="Log In"]:hover {
+	background-color: #005A60;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>Connect to Database</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_top">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="verticalSpacing">
+      <number>15</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="emailLabel">
+       <property name="text">
+        <string>Email:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="emailEdit">
+       <property name="placeholderText">
+        <string>researcher@lab.edu</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="passwordLabel">
+       <property name="text">
+        <string>Password:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="passwordEdit">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="registerLabel">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New user? &lt;a href=&quot;https://mouse-pose.com&quot; style=&quot;color: #007B83; font-weight: bold; text-decoration: none;&quot;&gt;Register&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel</set>
+     </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

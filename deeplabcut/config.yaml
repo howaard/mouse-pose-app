@@ -1,0 +1,64 @@
+SuperAnimalConversionTables: null
+Task: rtmposex
+TrainingFraction:
+- 0.95
+alphavalue: 0.7
+batch_size: 16
+bodyparts:
+- 1_snout
+- 2_ear_l_tip
+- 3_ear_r_tip
+- 4_upper_spine
+- 5_middle_spine
+- 6_lower_spine
+- 7_elbow_l
+- 8_wrist_l
+- 9_fore_paw_l_tip
+- 10_elbow_r
+- 11_wrist_r
+- 12_fore_paw_r_tip
+- 13_knee_l
+- 14_ankle_l
+- 15_hind_paw_l_tip
+- 16_knee_r
+- 17_ankle_r
+- 18_hind_paw_r_tip
+- 19_tail_0
+- 20_tail_1
+- 21_tail_2
+colormap: rainbow
+corner2move2:
+- 50
+- 50
+cropping: false
+date: Aug25
+default_augmenter: default
+default_net_type: resnet_50
+detector_batch_size: 16
+detector_snapshotindex: -1
+dotsize: 4
+engine: pytorch
+identity: null
+iteration: 0
+move2corner: true
+multianimalproject: false
+numframes2pick: 477
+pcutoff: 0.01
+project_path: C:\Users\Howard\Desktop\mouse-pose-app\deeplabcut
+scorer: Blender
+skeleton:
+- - bodypart1
+  - bodypart2
+- - objectA
+  - bodypart3
+skeleton_color: black
+snapshotindex: -1
+start: 0
+stop: 1
+video_sets:
+  /kaggle/working/testresnet50/videos/Blender:
+    crop: 0, 928, 0, 576
+x1: 0
+x2: 640
+y1: 277
+y2: 624

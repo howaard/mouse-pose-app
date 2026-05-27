@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WelcomeWidget</class>
+ <widget class="QWidget" name="WelcomeWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- Main Window Style --- */
+QWidget#WelcomeWidget {
+    background-color: #FFFFFF;
+}
+
+/* --- Label Styles --- */
+QLabel {
+    color: #2D3748;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+QLabel#logoLabel {
+    background-color: qradialgradient(
+        cx:0.5, cy:0.5, radius:0.4,
+        fx:0.5, fy:0.5,
+        stop:0 rgba(0, 0, 0, 10),
+        stop:1 transparent
+    );
+    border: none;
+}
+
+QLabel#titleLabel {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+}
+
+QLabel#subtitleLabel {
+    font-size: 14px;
+    color: #007B83;
+}
+
+/* --- Main Action Buttons --- */
+QPushButton {
+    background-color: #FFFFFF;
+    color: #007B83;
+    border: 2px solid #007B83;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 200px;
+}
+
+QPushButton:hover {
+    background-color: #007B83; 
+    color: #FFFFFF;
+}
+
+QPushButton:pressed {
+    background-color: #005A60;
+    color: #FFFFFF;
+}
+
+/* --- Top Right Login Button --- */
+QPushButton#loginButton {
+    min-width: 100px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 1px solid #007B83;
+    border-radius: 6px;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,1,0,0">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <property name="leftMargin">
+    <number>50</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>50</number>
+   </property>
+   <property name="bottomMargin">
+    <number>50</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="topBarLayout">
+     <item>
+      <spacer name="horizontalSpacer_top">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="loginButton">
+       <property name="text">
+        <string>Log In / Sync</string>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>Monocular 3D Mouse Pose Estimation</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="subtitleLabel">
+     <property name="text">
+      <string>A lightweight tool for markerless 3D animal pose tracking.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="logoLabel">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>300</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="createProjectButton">
+       <property name="text">
+        <string>Create New Project</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="openProjectButton">
+       <property name="text">
+        <string>Open Project (Folder)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

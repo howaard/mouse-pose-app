@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1024</width>
+    <height>768</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Main Application</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- Main Window Style --- */
+QWidget#MainWindow, QWidget#scrollAreaWidgetContents { background-color: #FFFFFF; color: #2D3748; }
+QScrollArea#scrollArea { border: none; }
+
+/* --- Section Titles --- */
+QLabel#importRunLabel, QLabel#resultsLabel, QLabel#visualizeLabel { font-size: 18px; font-weight: bold; color: #1A202C; padding: 5px; border-bottom: 2px solid #007B83; }
+
+/* --- Info Labels --- */
+QLabel#projectPathLabel { font-size: 14px; color: #718096; }
+QLabel#inputChosenLabel { font-size: 14px; color: #007B83; font-weight: bold; }
+
+/* --- List Widget --- */
+QListWidget { background-color: #F7FAFC; border: 1px solid #CBD5E0; border-radius: 10px; font-size: 14px; color: #2D3748; }
+QListWidget::item { padding: 8px; border-radius: 5px; }
+QListWidget::item:hover { background-color: #EDF2F7; border: 1px solid #007B83; }
+QListWidget::item:selected { background-color: #007B83; color: #FFFFFF; }
+
+/* --- Buttons --- */
+QPushButton { background-color: #FFFFFF; color: #007B83; border: 2px solid #007B83; border-radius: 8px; padding: 10px; font-size: 14px; font-weight: bold; }
+QPushButton:hover { background-color: #E6F2F3; }
+QPushButton:pressed { background-color: #007B83; color: #FFFFFF; }
+QPushButton#poseButton { background-color: #007B83; color: #FFFFFF; font-size: 16px; }
+QPushButton#poseButton:hover { background-color: #005A60; }
+QPushButton#poseButton:disabled { background-color: #EDF2F7; color: #A0AEC0; border: 2px solid #CBD5E0; }
+
+/* Small Delete Button */
+QPushButton#deleteRunButton { padding: 4px 8px; font-size: 12px; color: #E53E3E; border: 1px solid #FC8181; border-radius: 4px; }
+QPushButton#deleteRunButton:hover { background-color: #FFF5F5; }
+QPushButton#deleteRunButton:disabled { color: #CBD5E0; border: 1px solid #E2E8F0; }
+
+/* --- Separator Line and Logs --- */
+QFrame#line { border: 1px solid #E2E8F0; }
+QPlainTextEdit#logOutput { background-color: #F7FAFC; border: 1px solid #CBD5E0; border-radius: 5px; color: #2D3748; font-family: Consolas, monospaced; }
+
+/* --- Master Player Controls --- */
+QPushButton#rewindButton { padding: 5px 10px; font-size: 16px; border-radius: 5px; }
+QPushButton#syncPlayButton { padding: 5px 15px; font-size: 14px; background-color: #007B83; color: white; border-radius: 5px; }
+QLabel#masterTimeLabel { color: #4A5568; font-weight: bold; font-size: 12px; }
+QSlider::groove:horizontal { border: 1px solid #CBD5E0; height: 6px; background: #EDF2F7; margin: 2px 0; border-radius: 3px; }
+QSlider::handle:horizontal { background: #007B83; border: 1px solid #FFFFFF; width: 18px; margin: -6px 0; border-radius: 9px; }
+QSlider::handle:horizontal:hover { background: #005A60; }
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1178</width>
+        <height>1200</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
+       <item>
+        <widget class="QLabel" name="projectPathLabel">
+         <property name="text"><string>Current Project: Not Loaded</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="importRunBox">
+         <property name="title"><string/></property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="importRunLabel">
+            <property name="text"><string>Import &amp; Run</string></property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1">
+            <item><widget class="QListWidget" name="importListWidget"/></item>
+            <item>
+             <layout class="QVBoxLayout" name="controlsLayout">
+              <item><widget class="QPushButton" name="importButton"><property name="text"><string>Import Files...</string></property></widget></item>
+              <item><widget class="QPushButton" name="removeButton"><property name="text"><string>Remove Selected</string></property></widget></item>
+              <item><spacer name="verticalSpacer_3"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeType"><enum>QSizePolicy::Fixed</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+              <item><widget class="QLabel" name="inputChosenLabel"><property name="text"><string>Input Chosen: None</string></property></widget></item>
+              <item>
+               <widget class="QComboBox" name="modeComboBox">
+                <property name="styleSheet"><string>padding: 8px; font-weight: bold; border: 1px solid #CBD5E0; border-radius: 4px; background-color: #FFFFFF; color: #2D3748;</string></property>
+                <item><property name="text"><string>2D Pose Estimation</string></property></item>
+                <item><property name="text"><string>3D Pose Estimation</string></property></item>
+               </widget>
+              </item>
+              <item><widget class="QPushButton" name="poseButton"><property name="text"><string>Pose !</string></property></widget></item>
+              <item><spacer name="verticalSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property></spacer></item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="resultsBox">
+         <property name="minimumSize"><size><width>0</width><height>200</height></size></property>
+         <property name="title"><string/></property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item><widget class="QLabel" name="resultsLabel"><property name="text"><string>Logs &amp; Results</string></property></widget></item>
+          <item><widget class="QPlainTextEdit" name="logOutput"/></item>
+         </layout>
+        </widget>
+       </item>
+       <item><widget class="QFrame" name="line"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
+       <item>
+        <widget class="QGroupBox" name="visualizeBox">
+         <property name="minimumSize"><size><width>0</width><height>900</height></size></property>
+         <property name="title"><string/></property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item><widget class="QLabel" name="visualizeLabel"><property name="text"><string>Visualize Results</string></property></widget></item>
+          
+          <item>
+           <layout class="QVBoxLayout" name="visualizeMainLayout">
+            
+            <!-- Horizontal Results List on top -->
+            <item>
+             <widget class="QWidget" name="outputListContainer">
+              <property name="maximumHeight"><number>180</number></property>
+              <layout class="QVBoxLayout" name="outputListLayout">
+               <property name="leftMargin"><number>0</number></property>
+               <property name="topMargin"><number>0</number></property>
+               <property name="rightMargin"><number>0</number></property>
+               <property name="bottomMargin"><number>5</number></property>
+               
+               <!-- Delete Button next to the label -->
+               <item>
+                <layout class="QHBoxLayout" name="outputHeaderLayout">
+                 <item><widget class="QLabel" name="labelOutputMedia"><property name="text"><string>Output Runs</string></property><property name="styleSheet"><string>font-weight: bold; color: #6B46C1; font-size: 14px;</string></property></widget></item>
+                 <item><spacer name="horizontalSpacer_3"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+                 <item><widget class="QPushButton" name="deleteRunButton"><property name="text"><string>🗑 Delete Selected Run</string></property><property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property></widget></item>
+                </layout>
+               </item>
+               
+               <item>
+                <widget class="QListWidget" name="resultsListWidget">
+                 <property name="iconSize"><size><width>48</width><height>48</height></size></property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            
+            <!-- Displays & Controls beneath the list -->
+            <item>
+             <layout class="QVBoxLayout" name="visualizeDisplayLayout">
+              <item>
+               <layout class="QHBoxLayout" name="toggleLayout">
+                <item><spacer name="horizontalSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+                <item><layout class="QHBoxLayout" name="toggleSwitchLayout"/></item>
+               </layout>
+              </item>
+              
+              <item><layout class="QHBoxLayout" name="videoPlayersLayout"/></item>
+              
+              <!-- Master Sync Controls -->
+              <item>
+               <layout class="QHBoxLayout" name="syncControlsLayout">
+                <property name="topMargin"><number>10</number></property>
+                <item><widget class="QPushButton" name="rewindButton"><property name="text"><string>⏮</string></property><property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property></widget></item>
+                <item><widget class="QPushButton" name="syncPlayButton"><property name="text"><string>▶ Play</string></property><property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property></widget></item>
+                <item><widget class="QSlider" name="masterSlider"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property></widget></item>
+                <item><widget class="QLabel" name="masterTimeLabel"><property name="text"><string>00:00 / 00:00</string></property></widget></item>
+               </layout>
+              </item>
+              
+              <item>
+               <layout class="QHBoxLayout" name="exportLayout">
+                <item>
+                 <widget class="QPushButton" name="browseFolderButton">
+                  <property name="text"><string>📂 Browse Folder</string></property>
+                  <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation"><enum>Qt::Horizontal</enum></property>
+                  <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="syncCloudButton">
+                  <property name="text"><string>☁️ Sync to Cloud</string></property>
+                  <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                  <property name="styleSheet"><string>background-color: #007B83; color: white;</string></property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="exportFrameButton">
+                  <property name="text"><string>📸 Export Right Frame</string></property>
+                  <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
