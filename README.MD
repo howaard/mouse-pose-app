@@ -34,7 +34,9 @@ conda activate mouse
 
 **2. Install Hardware Acceleration (Nvidia GPU Recommended)**
 ```bash
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
+# The command depends on your GPU model!
+pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu118
+pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu128
 ```
 
 **3. Install Dependencies & Launch**
