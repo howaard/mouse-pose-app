@@ -16,6 +16,11 @@ A hybrid AI desktop application and cloud dashboard designed to extract precise 
 
 ---
 
+## Sample Output
+![demo](2d_outout.webp)
+
+---
+
 ## 📥 Model Weights Download
 Due to file size constraints, the pre-trained RTMPose model weights are hosted externally. 
 1. Download the weights here: [https://drive.google.com/drive/folders/1J8SNtwVYJroW1cTlSppY7jwjQ1Npf9fX?usp=sharing]
