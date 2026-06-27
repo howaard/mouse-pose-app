@@ -15,10 +15,10 @@ A hybrid AI desktop application and cloud dashboard designed to extract precise 
 * **Cloud Collaboration:** Secure, out-of-band AWS S3 upload pipelines synced with a Next.js/MongoDB web dashboard for remote team collaboration.
 
 ---
-
 ## Sample Output
 ![demo](2d_output.webp)
 
+![demo](3d_output.webp)
 ---
 
 ## 📥 Model Weights Download
