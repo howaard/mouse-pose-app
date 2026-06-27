@@ -17,7 +17,7 @@ A hybrid AI desktop application and cloud dashboard designed to extract precise 
 ---
 
 ## Sample Output
-![demo](2d_outout.webp)
+![demo](2d_output.webp)
 
 ---
 
